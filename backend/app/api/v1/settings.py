@@ -234,3 +234,21 @@ async def get_im_messages(
         })
     return success_response(data=grouped)
 
+
+@router.put("/logistics/{comp_id}/status")
+async def update_logistics_status_proxy(
+    comp_id: str,
+    request_data: dict,
+    db: Annotated[AsyncSession, Depends(get_db)],
+    _: Annotated[User, Depends(require_permission("settings:system"))],
+):
+    """代理更新物流公司状态 — 前端 settings/index.tsx 使用"""
+    from app.models.admin_model import LogisticsCompany
+    status = request_data.get("status", False)
+    res = await db.execute(select(LogisticsCompany).where(LogisticsCompany.id == comp_id))
+    comp = res.scalar_one_or_none()
+    if comp:
+        comp.status = status
+        await db.commit()
+    return success_response(message="物流公司状态已更新")
+

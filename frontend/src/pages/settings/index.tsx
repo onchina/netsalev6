@@ -33,6 +33,14 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import type { ColumnsType } from 'antd/es/table';
 import request from '../../api/request';
+
+// 时间格式处理函数
+const formatDate = (dateString: string | Date): string => {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    if (isNaN(date.getTime())) return '';
+    return date.toISOString().split('T')[0];
+};
 import styles from './settings.module.css';
 
 const { Title, Text } = Typography;
@@ -88,6 +96,14 @@ const ALL_PERMISSIONS = [
         children: [
             { key: 'operation:channel', label: '类型管理' },
             { key: 'operation:logs', label: '日志列表' }
+        ]
+    },
+    {
+        key: 'security',
+        label: '安全设置',
+        children: [
+            { key: 'security:ip_whitelist', label: 'IP白名单验证' },
+            { key: 'security:ip_whitelist_manage', label: 'IP白名单管理' }
         ]
     },
     {
@@ -209,6 +225,7 @@ const Settings: React.FC = () => {
             setSensitiveWords(Array.isArray(swRes) ? swRes : swRes?.data?.items || swRes?.data || []);
         } catch (e) {
             console.error('Fetch error:', e);
+            message.error('数据获取失败，请稍后重试');
         }
     };
     const [editingIP, setEditingIP] = useState<any>(null);
@@ -293,14 +310,20 @@ const Settings: React.FC = () => {
     const [editingDept, setEditingDept] = useState<any>(null);
     const [deptForm] = Form.useForm();
 
-    const handleEditDept = (record: any) => {
-        setEditingDept(record);
-        deptForm.setFieldsValue({
-            name: record.name,
-            code: record.code,
-            manager: record.manager,
-        });
-        setDeptModalVisible(true);
+    const handleEditDept = async (record: any) => {
+        try {
+            // 调用后端API获取部门详情
+            const deptDetail = await request.get(`/admin/departments/${record.id}`);
+            setEditingDept(deptDetail);
+            deptForm.setFieldsValue({
+                name: deptDetail.name,
+                code: deptDetail.code,
+                manager: deptDetail.manager,
+            });
+            setDeptModalVisible(true);
+        } catch (e) {
+            message.error('获取部门详情失败');
+        }
     };
 
     const handleDeptSave = () => {
@@ -369,45 +392,58 @@ const Settings: React.FC = () => {
     };
 
     // IP 白名单状态切换
-    const handleIPStatusChange = (id: string, checked: boolean) => {
-        setIpWhitelist(prev => prev.map(item =>
-            item.id === id ? { ...item, status: checked } : item
-        ));
-        message.success(`已${checked ? '启用' : '停用'}该 IP`);
+    const handleIPStatusChange = async (id: string, checked: boolean) => {
+        try {
+            await request.put(`/admin/ip-whitelist/${id}/status`, { status: checked });
+            setIpWhitelist(prev => prev.map(item =>
+                item.id === id ? { ...item, status: checked } : item
+            ));
+            message.success(`已${checked ? '启用' : '停用'}该 IP`);
+        } catch (e) {
+            message.error('状态更新失败');
+        }
     };
 
     // 删除 IP
-    const handleDeleteIP = (id: string) => {
-        setIpWhitelist(prev => prev.filter(item => item.id !== id));
-        message.success('已移除该 IP 地址');
+    const handleDeleteIP = async (id: string) => {
+        try {
+            await request.delete(`/admin/ip-whitelist/${id}`);
+            setIpWhitelist(prev => prev.filter(item => item.id !== id));
+            message.success('已移除该 IP 地址');
+        } catch (e) {
+            message.error('删除失败');
+        }
     };
 
     // 添加/编辑 IP
     const [ipForm] = Form.useForm();
-    const handleAddIP = () => {
-        ipForm.validateFields().then(values => {
+    const handleAddIP = async () => {
+        try {
+            const values = await ipForm.validateFields();
             if (editingIP) {
                 // 编辑逻辑
+                await request.put(`/admin/ip-whitelist/${editingIP.id}`, values);
                 setIpWhitelist(prev => prev.map(item =>
                     item.id === editingIP.id ? { ...item, ...values } : item
                 ));
                 message.success('已更新 IP 配置');
             } else {
                 // 新增逻辑
-                const newIP = {
-                    id: Date.now().toString(),
+                const newIP = await request.post('/admin/ip-whitelist', {
                     ip: values.ip,
                     remark: values.remark || '-',
-                    status: true,
-                    createdAt: new Date().toISOString().split('T')[0]
-                };
+                    status: true
+                });
                 setIpWhitelist([newIP, ...ipWhitelist]);
                 message.success('已添加新 IP 地址');
             }
             ipForm.resetFields();
             setEditingIP(null);
             setIpModalVisible(false);
-        });
+        } catch (e: any) {
+            if (e?.errorFields) return;
+            message.error('操作失败');
+        }
     };
 
     const handleEditIP = (record: any) => {
@@ -420,11 +456,16 @@ const Settings: React.FC = () => {
     };
 
     // 物流状态切换
-    const handleLogisticsStatusChange = (id: string, checked: boolean) => {
-        setLogisticsList(prev => prev.map(item =>
-            item.id === id ? { ...item, status: checked } : item
-        ));
-        message.success(`已${checked ? '启用' : '停用'}该物流公司`);
+    const handleLogisticsStatusChange = async (id: string, checked: boolean) => {
+        try {
+            await request.put(`/settings/logistics/${id}/status`, { status: checked });
+            setLogisticsList(prev => prev.map(item =>
+                item.id === id ? { ...item, status: checked } : item
+            ));
+            message.success(`已${checked ? '启用' : '停用'}该物流公司`);
+        } catch (e) {
+            message.error('状态更新失败');
+        }
     };
 
     // 顺丰接口配置模态框
@@ -901,7 +942,12 @@ const Settings: React.FC = () => {
                                                     return <Tag color={colors[level]}>{labels[level]}</Tag>
                                                 }
                                             },
-                                            { title: '添加时间', dataIndex: 'createdAt', key: 'createdAt' },
+                                            { 
+                                                title: '添加时间', 
+                                                dataIndex: 'createdAt', 
+                                                key: 'createdAt',
+                                                render: (createdAt) => formatDate(createdAt)
+                                            },
                                             {
                                                 title: '操作',
                                                 key: 'action',
@@ -961,7 +1007,13 @@ const Settings: React.FC = () => {
                                     />
                                 )
                             },
-                            { title: '添加时间', dataIndex: 'createdAt', key: 'createdAt', width: 120 },
+                            { 
+                                title: '添加时间', 
+                                dataIndex: 'createdAt', 
+                                key: 'createdAt', 
+                                width: 120,
+                                render: (createdAt) => formatDate(createdAt)
+                            },
                             {
                                 title: '操作',
                                 key: 'action',

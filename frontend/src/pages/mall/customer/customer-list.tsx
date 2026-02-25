@@ -7,7 +7,6 @@ import type { ColumnsType } from 'antd/es/table';
 import PrivacyField from '../../../components/privacy-field';
 import { getTagStyle } from '../../../utils/color';
 import styles from './customer.module.css';
-// import { MOCK_CUSTOMER_TYPES } from '../../../constants/dictionaries';
 import { useDictionaryStore } from '../../../stores/dictionary-store';
 import { useEffect } from 'react';
 import request from '../../../api/request';
@@ -26,30 +25,6 @@ interface CustomerRecord {
     owner: string;
     createdAt: string;
 }
-
-// 模拟客户数据 - 存储完整电话号码
-/*
-const mockData: CustomerRecord[] = [
-    { id: 'C001', name: '王小明', phone: '13812341234', channel: '抖音', customerType: 'new', entryDate: '2026-01-28', owner: '张三', createdAt: '2026-01-28 10:30' },
-    { id: 'C002', name: '李小红', phone: '13956785678', channel: '快手', customerType: 'old', entryDate: '2026-01-27', owner: '张三', createdAt: '2026-01-27 14:20' },
-    { id: 'C003', name: '赵小刚', phone: '13790129012', channel: '微信', customerType: 'vip', entryDate: '2026-01-26', owner: '李四', createdAt: '2026-01-26 09:15' },
-    { id: 'C004', name: '孙小芳', phone: '13634563456', channel: '淘宝', customerType: 'repurchase', entryDate: '2026-01-25', owner: '张三', createdAt: '2026-01-25 16:45' },
-    { id: 'C005', name: '周小军', phone: '13578907890', channel: '抖音', customerType: 'new', entryDate: '2026-01-24', owner: '王五', createdAt: '2026-01-24 11:30' },
-];
-*/
-
-// 渠道选项
-/*
-const channelOptions = [
-    { value: 'douyin', label: '抖音' },
-    { value: 'kuaishou', label: '快手' },
-    { value: 'wechat', label: '微信' },
-    { value: '淘宝', label: '淘宝' },
-    { value: 'jd', label: '京东' },
-    { value: 'offline', label: '线下' },
-    { value: 'other', label: '其他' },
-];
-*/
 
 const CustomerList: React.FC = () => {
     const [createModalVisible, setCreateModalVisible] = useState(false);

@@ -5,6 +5,7 @@ import { faUser, faPenToSquare, faFloppyDisk, faUpload } from '@fortawesome/free
 import type { RcFile } from 'antd/es/upload';
 import type { User } from '../../types';
 import { useUserStore } from '../../stores';
+import request from '../../api/request';
 
 interface ProfileModalProps {
     open: boolean;
@@ -41,11 +42,14 @@ const ProfileModal: React.FC<ProfileModalProps> = ({ open, onClose, user }) => {
         try {
             const values = await form.validateFields();
             const newUser = { ...user, ...values, avatar: avatarUrl };
+            // 调用后端API保存修改
+            await request.put(`/users/${user.id}`, newUser);
             setUser(newUser);
             message.success('个人档案已更新');
             setIsEditing(false);
         } catch (error) {
             console.error('Validate Failed:', error);
+            message.error('更新失败，请稍后重试');
         }
     };
 
@@ -53,6 +57,22 @@ const ProfileModal: React.FC<ProfileModalProps> = ({ open, onClose, user }) => {
         const reader = new FileReader();
         reader.addEventListener('load', () => callback(reader.result as string));
         reader.readAsDataURL(img);
+    };
+
+    const handleUpload = async (file: RcFile) => {
+        try {
+            const formData = new FormData();
+            formData.append('avatar', file);
+            const response = await request.post('/users/avatar', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            setAvatarUrl(response.data.avatarUrl);
+            message.success('头像上传成功');
+        } catch (error) {
+            message.error('头像上传失败，请稍后重试');
+        }
     };
 
     const beforeUpload = (file: RcFile) => {
@@ -70,6 +90,8 @@ const ProfileModal: React.FC<ProfileModalProps> = ({ open, onClose, user }) => {
         getBase64(file, (url) => {
             setAvatarUrl(url);
         });
+        // 调用上传函数
+        handleUpload(file);
         return false;
     };
 

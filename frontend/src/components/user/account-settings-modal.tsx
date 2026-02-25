@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Modal, Form, Input, Button, message, Tabs } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
+import request from '../../api/request';
 
 interface AccountSettingsModalProps {
     open: boolean;
@@ -16,17 +17,19 @@ const AccountSettingsModal: React.FC<AccountSettingsModalProps> = ({ open, onClo
         try {
             const values = await form.validateFields();
             setLoading(true);
-
-            // 模拟 API 调用
-            setTimeout(() => {
-                console.log('修改密码:', values);
-                message.success('密码修改成功，请重新登录');
-                setLoading(false);
-                onClose();
-                form.resetFields();
-            }, 1000);
-        } catch (error) {
+            // 调用后端API修改密码
+            await request.put('/users/password', {
+                oldPassword: values.oldPassword,
+                newPassword: values.newPassword
+            });
+            message.success('密码修改成功，请重新登录');
+            setLoading(false);
+            onClose();
+            form.resetFields();
+        } catch (error: any) {
             console.error('Validate Failed:', error);
+            message.error(error.response?.data?.message || '密码修改失败，请稍后重试');
+            setLoading(false);
         }
     };
 

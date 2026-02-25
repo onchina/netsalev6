@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState, useRef } from 'react';
 import { Layout, Menu, Avatar, Badge, Typography, message, Popover } from 'antd';
 import type { MenuProps } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -85,7 +85,8 @@ const MainLayout: React.FC = () => {
                 setNotifications(count > 0 ? Array.from({ length: count }, (_, i) => ({ id: i + 1 })) : []);
             }
         } catch (e) {
-            // 静默失败
+            message.error('获取通知数据失败，请稍后重试');
+            console.error('Fetch badges error:', e);
         }
     };
 
@@ -110,10 +111,18 @@ const MainLayout: React.FC = () => {
 
 
 
+    // 使用useRef记录重定向状态，避免重复执行
+    const redirectRef = useRef(false);
+    
     // 检查登录状态
     useEffect(() => {
         if (!isLoggedIn || !user) {
-            navigate('/login', { replace: true });
+            if (!redirectRef.current) {
+                redirectRef.current = true;
+                navigate('/login', { replace: true });
+            }
+        } else {
+            redirectRef.current = false;
         }
     }, [isLoggedIn, user, navigate]);
 
