@@ -1,0 +1,415 @@
+.layout {
+    min-height: 100vh;
+}
+
+/* 侧边栏 - 白色简洁风格 */
+.sider {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    overflow: auto;
+    background: #fff;
+    border-right: 1px solid #f0f0f0;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.04);
+}
+
+.sider::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sider::-webkit-scrollbar-thumb {
+    background: #e0e0e0;
+    border-radius: 2px;
+}
+
+/* Logo 区域 */
+.logo {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.logoIcon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #1677ff 0%, #4096ff 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.logoText {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1677ff;
+    white-space: nowrap;
+}
+
+/* 菜单样式 */
+.menu {
+    background: transparent;
+    border-right: none;
+    padding: 8px;
+}
+
+.menu :global(.ant-menu-item-group-title) {
+    font-size: 12px;
+    color: #999;
+    padding: 16px 16px 8px;
+    font-weight: 500;
+}
+
+.menu :global(.ant-menu-item),
+.menu :global(.ant-menu-submenu-title) {
+    margin: 2px 0;
+    border-radius: 8px;
+    color: #333;
+    height: 40px;
+    line-height: 40px;
+}
+
+.menu :global(.ant-menu-item:hover),
+.menu :global(.ant-menu-submenu-title:hover) {
+    background: #f5f7fa;
+    color: #1677ff;
+}
+
+.menu :global(.ant-menu-item-selected) {
+    background: #e6f4ff !important;
+    color: #1677ff !important;
+    font-weight: 500;
+}
+
+.menu :global(.ant-menu-item-selected)::after {
+    display: none;
+}
+
+.menu :global(.ant-menu-submenu-selected > .ant-menu-submenu-title) {
+    color: #1677ff;
+}
+
+.menu :global(.ant-menu-sub) {
+    background: transparent !important;
+}
+
+/* 顶部栏 - 白色简洁 */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    height: 60px;
+    background: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    margin-left: 220px;
+    transition: margin-left 0.2s;
+}
+
+.headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.trigger {
+    font-size: 18px;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 8px;
+    color: #666;
+}
+
+.trigger:hover {
+    color: #1677ff;
+    background: #f5f7fa;
+}
+
+.headerRight {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.headerIcon {
+    font-size: 18px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    color: #666;
+    transition: all 0.3s;
+}
+
+.headerIcon:hover {
+    color: #1677ff;
+    background: #f5f7fa;
+}
+
+/* 用户信息下拉 */
+.userInfo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 24px;
+    transition: background 0.3s;
+    background: #f5f7fa;
+}
+
+.userInfo:hover {
+    background: #e6f4ff;
+}
+
+.userAvatar {
+    background: linear-gradient(135deg, #1677ff 0%, #4096ff 100%);
+}
+
+.userMeta {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+}
+
+.userName {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.userRole {
+    font-size: 12px;
+    color: #999;
+}
+
+/* 用户卡片式下拉菜单 */
+.userCard {
+    width: 240px;
+}
+
+.userCardHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: linear-gradient(135deg, #f0f5ff 0%, #e6f4ff 100%);
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.userCardMeta {
+    flex: 1;
+    min-width: 0;
+}
+
+.userCardName {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.4;
+}
+
+.userCardRole {
+    font-size: 12px;
+    color: #1677ff;
+    line-height: 1.4;
+}
+
+.userCardBody {
+    padding: 6px 8px;
+}
+
+.userCardItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: #333;
+    font-size: 14px;
+}
+
+.userCardItem:hover {
+    background: #f5f7fa;
+}
+
+.userCardItemIcon {
+    font-size: 15px;
+    color: #666;
+    display: inline-flex;
+}
+
+.userCardItemLabel {
+    flex: 1;
+}
+
+.userCardFooter {
+    padding: 6px 8px 8px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.userCardLogout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #ff4d4f;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.userCardLogout:hover {
+    background: #fff1f0;
+}
+
+/* 内容区 */
+.content {
+    margin-left: 220px;
+    padding: 20px;
+    min-height: calc(100vh - 60px);
+    background: #f5f7fa;
+    transition: margin-left 0.2s;
+}
+
+/* 侧边栏折叠时的样式调整 */
+:global(.ant-layout-sider-collapsed)~ :global(.ant-layout) .header {
+    margin-left: 80px;
+}
+
+:global(.ant-layout-sider-collapsed)~ :global(.ant-layout) .content {
+    margin-left: 80px;
+}
+
+:global(.ant-layout-sider-collapsed) .logoText {
+    display: none;
+}
+
+:global(.ant-layout-sider-collapsed) .userMeta {
+    display: none;
+}
+
+.screenLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 32px;
+    padding: 0 16px;
+    border-radius: 4px;
+    color: #4096ff;
+    background: #fff;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.2s;
+    border: 1px solid #d9d9d9;
+    line-height: 1;
+    margin-right: 4px;
+}
+
+.screenLink:hover {
+    color: #1677ff;
+    border-color: #1677ff;
+    background: #f0f7ff;
+}
+
+/* 大屏系统卡片下拉 */
+.screenCard {
+    width: 260px;
+}
+
+.screenCardHeader {
+    padding: 14px 16px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.screenCardBody {
+    padding: 8px;
+}
+
+.screenCardItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.screenCardItem:hover {
+    background: #f5f7fa;
+}
+
+.screenCardDisabled {
+    cursor: not-allowed;
+    opacity: 0.45;
+}
+
+.screenCardDisabled:hover {
+    background: transparent;
+}
+
+.screenCardIcon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.screenIconBlue {
+    background: #e6f4ff;
+    color: #1677ff;
+}
+
+.screenIconGold {
+    background: #fff7e6;
+    color: #fa8c16;
+}
+
+.screenIconGray {
+    background: #f5f5f5;
+    color: #bfbfbf;
+}
+
+.screenCardInfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.screenCardName {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.4;
+}
+
+.screenCardDesc {
+    font-size: 12px;
+    color: #999;
+    line-height: 1.4;
+}

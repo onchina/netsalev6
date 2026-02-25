@@ -1,0 +1,31 @@
+# EditorConfig - 编辑器基础配置
+# 作用：统一跨编辑器的代码风格（缩进、换行、字符集等）
+# 来源：基于 .agent/rules/user_global.md 转换
+
+# 标记这是根配置文件
+root = true
+
+# 适用于所有文件
+[*]
+charset = utf-8                  # 字符编码：UTF-8
+end_of_line = lf                # 换行符：LF（Linux 风格）
+insert_final_newline = true     # 文件末尾插入空行
+trim_trailing_whitespace = true  # 移除行尾空格
+indent_style = space             # 缩进风格：空格
+indent_size = 2                 # 默认缩进：2 空格
+
+# JavaScript/TypeScript/JSON/CSS/HTML/YAML 文件
+[*.{js,jsx,ts,tsx,json,css,scss,html,yml,yaml}]
+indent_size = 2
+
+# Python 文件
+[*.{py}]
+indent_size = 4                 # Python 惯例：4 空格
+
+# Markdown 文件
+[*.md]
+trim_trailing_whitespace = false # Markdown 需要保留尾部空格
+
+# Makefile
+[Makefile]
+indent_style = tab               # Makefile 使用 Tab

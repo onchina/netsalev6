@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  netsale-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: netsale-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app  # 挂载源码，支持热重载
+    environment:
+      - POSTGRES_HOST=1Panel-postgresql-RTuB
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=user_sdxNSw
+      - POSTGRES_PASSWORD=password_YZ7MZ4
+      - POSTGRES_DB=netsale_v6
+      - SECRET_KEY=netsale-v6-secret-key-change-in-production
+      - DEBUG=true
+    networks:
+      - 1panel-network
+
+networks:
+  1panel-network:
+    external: true

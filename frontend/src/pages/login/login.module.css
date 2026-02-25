@@ -1,0 +1,313 @@
+.container {
+    display: flex;
+    min-height: 100vh;
+    background: #0a0e17;
+}
+
+/* 左侧面板 */
+.leftPanel {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a1628 0%, #1a2744 50%, #0d1b2a 100%);
+}
+
+.bgOverlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+}
+
+.gridPattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* 粒子动画 */
+.particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(59, 130, 246, 0.6);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translateY(-30px) scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* 装饰圆圈 */
+.circleDecor1 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    top: -100px;
+    left: -100px;
+}
+
+.circleDecor2 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 1px solid rgba(99, 102, 241, 0.08);
+    bottom: -50px;
+    right: -50px;
+}
+
+.leftContent {
+    position: relative;
+    z-index: 10;
+    color: #fff;
+    padding: 40px;
+    max-width: 500px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.logoIcon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
+}
+
+.logoText {
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+    background: linear-gradient(90deg, #fff 0%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.slogan {
+    font-size: 18px;
+    color: #64748b;
+    margin-bottom: 48px;
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.featureItem {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 15px;
+    color: #94a3b8;
+}
+
+.featureDot {
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.5);
+}
+
+/* 右侧面板 */
+.rightPanel {
+    width: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+}
+
+.formWrapper {
+    width: 100%;
+    max-width: 360px;
+    padding: 40px;
+}
+
+.formHeader {
+    margin-bottom: 40px;
+}
+
+.formHeader h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0 0 8px 0;
+}
+
+.formHeader p {
+    font-size: 15px;
+    color: #64748b;
+    margin: 0;
+}
+
+.loginForm {
+    width: 100%;
+}
+
+.input {
+    height: 48px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s;
+}
+
+.input:hover,
+.input:focus {
+    border-color: #3b82f6;
+}
+
+.inputIcon {
+    color: #94a3b8;
+    font-size: 16px;
+}
+
+.formOptions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.forgotLink {
+    color: #3b82f6;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.forgotLink:hover {
+    color: #2563eb;
+}
+
+.loginBtn {
+    height: 48px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+    border: none;
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s;
+}
+
+.loginBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(59, 130, 246, 0.4);
+}
+
+.footer {
+    margin-top: 32px;
+    text-align: center;
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+/* 演示账号区域 */
+.demoSection {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px dashed #e2e8f0;
+}
+
+.demoTitle {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.demoAccounts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.demoCard {
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+.demoCard:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+}
+
+.demoCard :global(.ant-card-body) {
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.demoIcon {
+    font-size: 20px;
+}
+
+.demoInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.demoRole {
+    font-size: 13px;
+    font-weight: 500;
+    color: #1e293b;
+}
+
+.demoCred {
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+    .leftPanel {
+        display: none;
+    }
+
+    .rightPanel {
+        width: 100%;
+    }
+}

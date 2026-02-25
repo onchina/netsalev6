@@ -1,0 +1,395 @@
+.screen {
+    min-height: 100vh;
+    padding: 24px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+}
+
+@media (max-width: 1400px) {
+    .screen {
+        padding: 16px;
+    }
+}
+
+/* 顶部区域 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.title {
+    color: #fff !important;
+    margin: 0 !important;
+    font-size: 22px;
+    font-weight: 700;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+.headerCenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    order: 2;
+}
+
+@media (min-width: 1200px) {
+    .headerCenter {
+        flex: 1;
+        order: unset;
+    }
+}
+
+.departmentTabs {
+    margin-top: 4px;
+}
+
+.customTabs :global(.ant-tabs-nav) {
+    margin-bottom: 0 !important;
+}
+
+.customTabs :global(.ant-tabs-nav::before) {
+    display: none !important;
+}
+
+.customTabs :global(.ant-tabs-tab) {
+    padding: 8px 16px !important;
+    margin: 0 4px !important;
+    color: rgba(255, 255, 255, 0.4) !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border-radius: 6px 6px 0 0 !important;
+    border: none !important;
+    transition: all 0.3s !important;
+}
+
+.customTabs :global(.ant-tabs-tab-active) {
+    background: rgba(251, 191, 36, 0.1) !important;
+}
+
+.customTabs :global(.ant-tabs-tab-active .ant-tabs-tab-btn) {
+    color: #fbbf24 !important;
+    font-weight: 600 !important;
+}
+
+.customTabs :global(.ant-tabs-ink-bar) {
+    background: #fbbf24 !important;
+    height: 3px !important;
+}
+
+.dimensionSelector {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-radius: 8px !important;
+    padding: 2px !important;
+}
+
+.dimensionSelector :global(.ant-segmented-item) {
+    color: rgba(255, 255, 255, 0.6) !important;
+    transition: all 0.3s;
+}
+
+.dimensionSelector :global(.ant-segmented-item-selected) {
+    background: rgba(251, 191, 36, 0.9) !important;
+    color: #1a1a2e !important;
+    box-shadow: 0 2px 8px rgba(251, 191, 36, 0.4);
+    font-weight: 600;
+}
+
+.headerRight {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    order: 3;
+}
+
+.updateInfo {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 12px;
+}
+
+.syncStatus {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #52c41a;
+    font-size: 12px;
+    background: rgba(82, 196, 26, 0.1);
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.syncDot {
+    width: 6px;
+    height: 6px;
+    background: #52c41a;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+}
+
+.actionBtn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.85);
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.3s;
+}
+
+.actionBtn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+/* 排行类型切换 */
+.rankTypeSwitch {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.rankTypeSelector {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-radius: 8px !important;
+    padding: 2px !important;
+}
+
+.rankTypeSelector :global(.ant-segmented-item) {
+    color: rgba(255, 255, 255, 0.6) !important;
+    min-width: 80px;
+}
+
+.rankTypeSelector :global(.ant-segmented-item-selected) {
+    background: rgba(251, 191, 36, 0.9) !important;
+    color: #1a1a2e !important;
+    font-weight: 600;
+}
+
+/* 主内容区：左图表 + 右排行 */
+.mainContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 1200px) {
+    .mainContent {
+        grid-template-columns: 1fr;
+    }
+}
+
+.chartSection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.rankSection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 图表卡片 */
+.chartCard {
+    background: rgba(30, 35, 60, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.chartTitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.chartTitle::before {
+    content: '';
+    width: 3px;
+    height: 14px;
+    background: #fbbf24;
+    border-radius: 2px;
+}
+
+/* 排行榜 */
+.rankCard {
+    background: rgba(30, 35, 60, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.rankTitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.rankTitle::before {
+    content: '';
+    width: 3px;
+    height: 14px;
+    background: #fbbf24;
+    border-radius: 2px;
+}
+
+.rankTableContainer {
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+.rankTable {
+    min-width: 500px;
+}
+
+.rankHeader {
+    display: grid;
+    grid-template-columns: 50px 120px 1fr 80px 90px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.rankRow {
+    display: grid;
+    grid-template-columns: 50px 120px 1fr 80px 90px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    align-items: center;
+    color: #fff;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.rankRow:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.rankRow:last-child {
+    border-bottom: none;
+}
+
+.rankInfoCell {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+}
+
+.rankName {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.rankDept {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.rankCell {
+    display: flex;
+    align-items: center;
+}
+
+.rankAmountCell {
+    padding-right: 16px;
+}
+
+.amountWrapper {
+    width: 100%;
+}
+
+.amountText {
+    display: block;
+    margin-bottom: 6px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.progressBar {
+    width: 100%;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rankBadge {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.rank1 {
+    background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+}
+
+.rank2 {
+    background: linear-gradient(135deg, #cbd5e1 0%, #64748b 100%);
+    color: #fff;
+}
+
+.rank3 {
+    background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+    color: #fff;
+}
+
+.rankDefault {
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 500;
+    width: 26px;
+    text-align: center;
+}

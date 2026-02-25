@@ -1,0 +1,209 @@
+[
+    {
+        "id": "1",
+        "name": "抖音",
+        "code": "douyin",
+        "group": "channel",
+        "color": "#000000",
+        "sort": 1,
+        "enabled": true
+    },
+    {
+        "id": "2",
+        "name": "快手",
+        "code": "kuaishou",
+        "group": "channel",
+        "color": "#ff6600",
+        "sort": 2,
+        "enabled": true
+    },
+    {
+        "id": "3",
+        "name": "微信",
+        "code": "wechat",
+        "group": "channel",
+        "color": "#07c160",
+        "sort": 3,
+        "enabled": true
+    },
+    {
+        "id": "4",
+        "name": "淘宝",
+        "code": "taobao",
+        "group": "channel",
+        "color": "#ff4400",
+        "sort": 4,
+        "enabled": true
+    },
+    {
+        "id": "5",
+        "name": "京东",
+        "code": "jd",
+        "group": "channel",
+        "color": "#e4393c",
+        "sort": 5,
+        "enabled": false
+    },
+    {
+        "id": "6",
+        "name": "新客",
+        "code": "new",
+        "group": "customer_type",
+        "color": "#1677ff",
+        "sort": 1,
+        "enabled": true
+    },
+    {
+        "id": "7",
+        "name": "老客",
+        "code": "old",
+        "group": "customer_type",
+        "color": "#52c41a",
+        "sort": 2,
+        "enabled": true
+    },
+    {
+        "id": "8",
+        "name": "复购客",
+        "code": "repurchase",
+        "group": "customer_type",
+        "color": "#722ed1",
+        "sort": 3,
+        "enabled": true
+    },
+    {
+        "id": "9",
+        "name": "VIP客户",
+        "code": "vip",
+        "group": "customer_type",
+        "color": "#faad14",
+        "sort": 4,
+        "enabled": true
+    },
+    {
+        "id": "10",
+        "name": "新单",
+        "code": "new",
+        "group": "order_type",
+        "color": "#1677ff",
+        "sort": 1,
+        "enabled": true
+    },
+    {
+        "id": "11",
+        "name": "复购",
+        "code": "repurchase",
+        "group": "order_type",
+        "color": "#52c41a",
+        "sort": 2,
+        "enabled": true
+    },
+    {
+        "id": "12",
+        "name": "升单",
+        "code": "upgrade",
+        "group": "order_type",
+        "color": "#722ed1",
+        "sort": 3,
+        "enabled": true
+    },
+    {
+        "id": "13",
+        "name": "补单",
+        "code": "supplement",
+        "group": "order_type",
+        "color": "#eb2f96",
+        "sort": 4,
+        "enabled": true
+    },
+    {
+        "id": "14",
+        "name": "微信支付",
+        "code": "wechat",
+        "group": "payment_method",
+        "color": "#07c160",
+        "sort": 1,
+        "enabled": true
+    },
+    {
+        "id": "15",
+        "name": "支付宝",
+        "code": "alipay",
+        "group": "payment_method",
+        "color": "#1677ff",
+        "sort": 2,
+        "enabled": true
+    },
+    {
+        "id": "16",
+        "name": "银行转账",
+        "code": "bank",
+        "group": "payment_method",
+        "color": "#faad14",
+        "sort": 3,
+        "enabled": true
+    },
+    {
+        "id": "17",
+        "name": "企业微信转账",
+        "code": "cp_wechat",
+        "group": "payment_method",
+        "color": "#07c160",
+        "sort": 4,
+        "enabled": true
+    },
+    {
+        "id": "18",
+        "name": "预付定金",
+        "code": "deposit",
+        "group": "payment_method",
+        "color": "#722ed1",
+        "sort": 5,
+        "enabled": true
+    },
+    {
+        "id": "19",
+        "name": "货到付款",
+        "code": "cod",
+        "group": "payment_method",
+        "color": "#ff4d4f",
+        "sort": 6,
+        "enabled": true
+    },
+    {
+        "id": "20",
+        "name": "销售承担",
+        "code": "seller",
+        "group": "responsibility_type",
+        "color": "#ff4d4f",
+        "sort": 1,
+        "enabled": true
+    },
+    {
+        "id": "21",
+        "name": "公司承担",
+        "code": "company",
+        "group": "responsibility_type",
+        "color": "#1677ff",
+        "sort": 2,
+        "enabled": true
+    },
+    {
+        "id": "22",
+        "name": "物流承担",
+        "code": "logistics",
+        "group": "responsibility_type",
+        "color": "#faad14",
+        "sort": 3,
+        "enabled": true
+    },
+    {
+        "id": "23",
+        "name": "客户承担",
+        "code": "customer",
+        "group": "responsibility_type",
+        "color": "#52c41a",
+        "sort": 4,
+        "enabled": true
+    }
+]

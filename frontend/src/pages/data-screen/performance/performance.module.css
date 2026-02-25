@@ -1,0 +1,336 @@
+.screen {
+    min-height: 100vh;
+    padding: 24px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+}
+
+/* 响应式调整 */
+@media (max-width: 1400px) {
+    .screen {
+        padding: 16px;
+    }
+}
+
+/* 顶部区域 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.title {
+    color: #fff !important;
+    margin: 0 !important;
+    font-size: 22px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.headerCenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    order: 2;
+}
+
+@media (min-width: 1200px) {
+    .headerCenter {
+        flex: 1;
+        order: unset;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .headerCenter {
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .headerRight {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+.departmentFilter {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 4px 12px;
+    border-radius: 6px;
+}
+
+.filterLabel {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.departmentFilter :global(.ant-checkbox-wrapper) {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+}
+
+.departmentFilter :global(.ant-checkbox-checked .ant-checkbox-inner) {
+    background-color: #a855f7;
+    border-color: #a855f7;
+}
+
+.dimensionSelector {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-radius: 8px !important;
+    padding: 2px !important;
+}
+
+.dimensionSelector :global(.ant-segmented-item) {
+    color: rgba(255, 255, 255, 0.6) !important;
+    transition: all 0.3s;
+}
+
+.dimensionSelector :global(.ant-segmented-item-selected) {
+    background: rgba(168, 85, 247, 0.9) !important;
+    color: #fff !important;
+    box-shadow: 0 2px 8px rgba(168, 85, 247, 0.4);
+}
+
+.headerRight {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    order: 3;
+}
+
+.updateInfo {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 12px;
+}
+
+.syncStatus {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #52c41a;
+    font-size: 12px;
+    background: rgba(82, 196, 26, 0.1);
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.syncDot {
+    width: 6px;
+    height: 6px;
+    background: #52c41a;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+}
+
+.actionBtn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.85);
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.actionBtn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+/* 统计卡片区 */
+.statsRow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.statCard {
+    background: rgba(30, 35, 60, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.statCard:hover {
+    background: rgba(30, 35, 60, 0.6);
+    border-color: rgba(168, 85, 247, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.statLabel {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.statValue {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.statNumber {
+    font-size: 30px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+.statSub {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 12px;
+}
+
+.subLabel {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 12px;
+}
+
+.statTrend {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+}
+
+.subTrend {
+    padding: 1px 6px;
+    border-radius: 4px;
+}
+
+.trendUp {
+    color: #22c55e;
+    background: rgba(34, 197, 94, 0.1);
+}
+
+.trendDown {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* 目标达成率卡片 */
+.achievementCard {
+    position: relative;
+    overflow: hidden;
+}
+
+.achievementCard::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.achievementContent {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.rateNumber {
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.targetInfo {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 12px;
+    font-style: italic;
+}
+
+/* 图表区 */
+.chartRow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+@media (max-width: 900px) {
+    .chartRow {
+        grid-template-columns: 1fr;
+    }
+}
+
+.fullWidthChart {
+    grid-column: span 2;
+}
+
+@media (max-width: 1200px) {
+    .fullWidthChart {
+        grid-column: span 1;
+    }
+}
+
+.chartCard {
+    background: rgba(30, 35, 60, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.chartTitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.chartTitle::before {
+    content: '';
+    width: 3px;
+    height: 14px;
+    background: #a855f7;
+    border-radius: 2px;
+}

@@ -1,0 +1,40 @@
+# Ruff 配置 - Python 代码规范
+# 作用：Python 代码检查、格式化、导入排序
+# 来源：基于 .agent/rules/user_global.md 命名规范转换
+
+# Lint 规则配置
+[lint]
+# 启用的规则
+select = [
+    "E",   # pycodestyle 错误
+    "W",   # pycodestyle 警告
+    "F",   # pyflakes
+    "I",   # isort 导入排序
+    "N",   # pep8-naming 命名规范
+    "UP",  # pyupgrade
+]
+
+# 忽略的规则
+ignore = [
+    "E501",  # 行太长（由格式化工具处理）
+    "N802",  # 函数名应小写
+    "N803",  # 参数名应小写
+    "N806",  # 参数名应小写（在函数中）
+]
+
+# 按文件忽略规则
+[lint.per-file-ignores]
+"__init__.py" = ["F401"]  # __init__.py 允许未使用的导入
+
+# 格式化配置
+[format]
+quote-style = "single"    # 使用单引号
+indent-style = "space"     # 使用空格缩进
+line-ending = "lf"         # 换行符：LF
+
+# 命名规范（来自原规则 6.1）
+[lint.naming]
+classnames = "PascalCase"     # 类名：PascalCase
+functions = "snake_case"      # 函数名：snake_case
+variables = "snake_case"      # 变量名：snake_case
+constants = "UPPER_SNAKE_CASE"  # 常量：UPPER_SNAKE_CASE

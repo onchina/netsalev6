@@ -1,0 +1,69 @@
+.container {
+    padding: 0;
+}
+
+.statRow {
+    margin-bottom: 20px;
+}
+
+.statRow :global(.ant-card) {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.statRow :global(.ant-card-body) {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+}
+
+.mainCard {
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+}
+
+.toolbar {
+    padding: 16px 0;
+    margin-bottom: 8px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.tabs :global(.ant-tabs-nav) {
+    margin-bottom: 0;
+    padding: 0 16px;
+}
+
+.tabs :global(.ant-tabs-tab) {
+    padding: 12px 0;
+}
+
+/* 按钮点击反馈 */
+.container :global(.ant-btn) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 表格头部加重 */
+.container :global(.ant-table-thead > tr > th) {
+    background: #f8fafc !important;
+    font-weight: 600 !important;
+    color: #475569 !important;
+}
+
+/* 响应式微调 */
+@media (max-width: 768px) {
+    .statRow {
+        display: none;
+    }
+}

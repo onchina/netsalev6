@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f5f7fa;
+  color: #333;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d9d9d9;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bfbfbf;
+}
+
+/* 链接样式 */
+a {
+  color: #1677ff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #4096ff;
+}
+
+/* 卡片样式覆盖 */
+.ant-card {
+  border-radius: 12px;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s;
+}
+
+.ant-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.ant-card-head {
+  border-bottom: 1px solid #f0f0f0;
+  min-height: 48px;
+}
+
+.ant-card-head-title {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* 按钮样式 */
+.ant-btn-primary {
+  box-shadow: 0 2px 4px rgba(22, 119, 255, 0.3);
+}
+
+.ant-btn-primary:hover {
+  box-shadow: 0 4px 8px rgba(22, 119, 255, 0.4);
+}
+
+/* 表格样式 */
+.ant-table-wrapper {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.ant-table-thead>tr>th {
+  background: #fafafa !important;
+  font-weight: 600;
+  color: #666;
+}
+
+.ant-table-tbody>tr:hover>td {
+  background: #f5f7fa !important;
+}
+
+/* 标签样式 */
+.ant-tag {
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* 输入框焦点样式 */
+.ant-input:focus,
+.ant-input-focused,
+.ant-select-focused .ant-select-selector {
+  border-color: #1677ff !important;
+  box-shadow: 0 0 0 2px rgba(22, 119, 255, 0.1) !important;
+}
+
+/* 面包屑样式 */
+.ant-breadcrumb {
+  margin-bottom: 16px;
+}
+
+/* 分页样式 */
+.ant-pagination-item-active {
+  border-color: #1677ff;
+}
+
+.ant-pagination-item-active a {
+  color: #1677ff;
+}
+
+/* 模态框样式 */
+.ant-modal-content {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.ant-modal-header {
+  border-radius: 12px 12px 0 0;
+}
+
+/* 下拉菜单样式 */
+.ant-dropdown-menu {
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  padding: 4px;
+}
+
+.ant-dropdown-menu-item {
+  border-radius: 6px;
+}
+
+/* 消息提示样式 */
+.ant-message-notice-content {
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* 选项卡样式 */
+.ant-tabs-tab-active {
+  font-weight: 600;
+}
+
+/* 统计数值样式 */
+.ant-statistic-content-value {
+  font-weight: 600;
+}
+
+/* 表单标签样式 */
+.ant-form-item-label>label {
+  color: #666;
+  font-weight: 500;
+}
+
+/* Badge 样式 */
+.ant-badge-count {
+  box-shadow: none;
+}

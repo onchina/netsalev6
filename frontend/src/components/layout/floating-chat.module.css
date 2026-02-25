@@ -1,0 +1,95 @@
+/* 悬浮即时通讯按钮 */
+.floatingChat {
+    position: fixed;
+    z-index: 999;
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+    transition: box-shadow 0.3s ease;
+}
+
+.floatingChat.dragging {
+    cursor: grabbing;
+    transition: none;
+}
+
+
+
+.chatButton {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1677ff 0%, #4096ff 100%);
+    border: none;
+    box-shadow: 0 4px 16px rgba(22, 119, 255, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+}
+
+.chatButton:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 24px rgba(22, 119, 255, 0.45);
+}
+
+.floatingChat.dragging .chatButton {
+    transform: scale(1.12);
+    box-shadow: 0 8px 28px rgba(22, 119, 255, 0.5);
+    cursor: grabbing;
+}
+
+/* 角标 */
+.badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 9px;
+    background: #ff4d4f;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 18px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(255, 77, 79, 0.4);
+    pointer-events: none;
+}
+
+/* 提示文字（吸附左侧时显示在右，吸附右侧时显示在左） */
+.tooltip {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    font-size: 12px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.tooltipLeft {
+    right: calc(100% + 8px);
+}
+
+.tooltipRight {
+    left: calc(100% + 8px);
+}
+
+.floatingChat:hover .tooltip {
+    opacity: 1;
+}
+
+.floatingChat.dragging .tooltip {
+    opacity: 0;
+}

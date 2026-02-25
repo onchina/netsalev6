@@ -1,0 +1,251 @@
+# ===== 基础忽略规则 =====
+
+# 压缩包文件
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# 旧文档目录
+legacy_docs/
+
+# ===== 保留 Markdown 文档 =====
+# 不忽略 .md 文件（项目文档）
+!*.md
+
+# 日志文件
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 临时文件和备份
+*.bak
+*.tmp
+*.temp
+*.swp
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Python 忽略规则 =====
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# 数据库文件
+*.db
+*.sqlite
+*.sqlite3
+
+# ===== Node.js 忽略规则 =====
+
+# Dependencies（包含 frontend/node_modules）
+node_modules/
+jspm_packages/
+
+# Testing
+coverage/
+.nyc_output
+
+# Production
+build/
+dist/
+
+# Misc
+.DS_Store
+*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Local env files
+.env.local
+.env.*.local
+
+# Parcel
+.cache
+.parcel-cache
+
+# Next.js
+.next/
+out/
+.next.zip
+
+# Nuxt
+.nuxt/
+.output/
+
+# Vuepress
+. cache
+dist/
+
+# Storybook
+storybook-static/
+
+# TypeScript
+*.tsbuildinfo
+
+# ===== IDE 忽略规则 =====
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.history/
+
+# JetBrains
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.#*
+
+# Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+sftp-config.json
+Package Control.last-run
+5742018451178c31942a52e3f92e4610887d32e1.cae
+*.sublime-*
+
+# ===== 其他忽略规则 =====
+
+# 备份文件
+*.backup
+*.orig
+
+# 错误日志
+error.log
+backend.log
+frontend.log
+*.log
+
+# 容器相关（可选）
+# .dockerignore
+# Dockerfile
+# docker-compose.yml
+
+# 文档备份（可选）
+*备份*.zip
+*备份*.rar
